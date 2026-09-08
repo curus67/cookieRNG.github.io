@@ -9,22 +9,44 @@
 
 <body>
 
-    <!-- Top bar -->
-    <div class="top-bar">
+    <!-- TOP BAR -->
+    <header class="top-bar">
         <div class="game-title">🍪 CookieRNG</div>
 
-        <div class="coins">
-            🪙 <span id="coinCount">100</span>
+        <div class="stats">
+            <div class="level">
+                ⭐ Level <span id="level">1</span>
+            </div>
+
+            <div class="coins">
+                🪙 <span id="coins">0</span>
+            </div>
         </div>
+    </header>
+
+
+    <!-- XP BAR -->
+    <div class="xp-container">
+
+        <div class="xp-text">
+            XP: <span id="xp">0</span> / <span id="xpNeeded">5</span>
+        </div>
+
+        <div class="xp-bar">
+            <div id="xpFill" class="xp-fill"></div>
+        </div>
+
     </div>
 
-    <!-- Main game -->
+
+    <!-- MAIN GAME -->
     <main>
 
         <div id="resultText" class="result-text">
             Roll for a cookie!
         </div>
 
+        <!-- Cookies appear here -->
         <div id="cookieDisplay" class="cookie-display">
             🍪
         </div>
@@ -35,27 +57,57 @@
 
         <div id="timer" class="timer"></div>
 
+        <div id="streakText" class="streak-text"></div>
+
     </main>
 
-    <!-- Bottom buttons -->
+
+    <!-- BOTTOM BUTTONS -->
     <div class="bottom-buttons">
 
-        <button id="inventoryButton" class="feature-button inventory-button">
+        <button
+            id="inventoryButton"
+            class="feature-button inventory-button">
+
             🎒
             <span>Inventory</span>
+
         </button>
 
-        <button id="shopButton" class="feature-button shop-button">
+
+        <button
+            id="merchantButton"
+            class="feature-button merchant-button">
+
+            🍊
+            <span>Merchant</span>
+
+        </button>
+
+
+        <button
+            id="shopButton"
+            class="feature-button shop-button">
+
             🛒
             <span>Shop</span>
+
         </button>
 
     </div>
 
-    <!-- Inventory popup -->
+
+    <!-- ========================= -->
+    <!-- INVENTORY PANEL -->
+    <!-- ========================= -->
+
     <div id="inventoryPanel" class="panel inventory-panel">
 
-        <button id="closeInventory" class="close-button">✕</button>
+        <button
+            id="closeInventory"
+            class="close-button">
+            ✕
+        </button>
 
         <h2>🎒 Inventory</h2>
 
@@ -63,36 +115,269 @@
 
     </div>
 
-    <!-- Shop -->
+
+    <!-- ========================= -->
+    <!-- SHOP PANEL -->
+    <!-- ========================= -->
+
     <div id="shopPanel" class="panel shop-panel">
 
-        <button id="closeShop" class="close-button">✕</button>
+        <button
+            id="closeShop"
+            class="close-button">
+            ✕
+        </button>
 
         <h2>🛒 Cookie Shop</h2>
 
-        <div class="shop-item">
-            <div>
-                <h3>🍪 Lucky Rolling</h3>
-                <p>Increases your rare cookie chance.</p>
+        <div id="shopItems">
+
+            <!-- Faster Rolls -->
+            <div class="shop-item">
+
+                <div>
+                    <h3>⚡ Faster Rolls</h3>
+
+                    <p>
+                        Makes your rolls faster.
+                    </p>
+
+                    <small>
+                        Current time:
+                        <span id="rollTimeDisplay">
+                            3
+                        </span>s
+                    </small>
+                </div>
+
+                <button
+                    class="buy-button"
+                    id="speedUpgrade">
+                    🪙 100
+                </button>
+
             </div>
 
-            <button class="buy-button" id="luckUpgrade">
-                🪙 100
-            </button>
-        </div>
 
-        <div class="shop-item">
-            <div>
-                <h3>💰 Coin Bonus</h3>
-                <p>Get more coins from rolling.</p>
+            <!-- Auto Roll -->
+            <div class="shop-item">
+
+                <div>
+                    <h3>🔄 Auto Roll</h3>
+
+                    <p>
+                        Automatically rolls cookies.
+                    </p>
+
+                    <small id="autoStatus">
+                        Locked
+                    </small>
+                </div>
+
+                <button
+                    class="buy-button"
+                    id="autoUpgrade">
+                    🪙 500
+                </button>
+
             </div>
 
-            <button class="buy-button" id="coinUpgrade">
-                🪙 150
-            </button>
+
+            <!-- Multiple Rolls -->
+            <div class="shop-item">
+
+                <div>
+                    <h3>🍪🍪 Multiple Rolls</h3>
+
+                    <p>
+                        Roll 2 cookies at once.
+                    </p>
+
+                    <small id="multiStatus">
+                        Locked
+                    </small>
+                </div>
+
+                <button
+                    class="buy-button"
+                    id="multiUpgrade">
+                    🪙 5000
+                </button>
+
+            </div>
+
+
+            <!-- Luck -->
+            <div class="shop-item">
+
+                <div>
+                    <h3>🍀 Lucky Rolling</h3>
+
+                    <p>
+                        Improves your rare cookie chance.
+                    </p>
+
+                    <small>
+                        Level:
+                        <span id="luckLevel">
+                            0
+                        </span>
+                    </small>
+                </div>
+
+                <button
+                    class="buy-button"
+                    id="luckUpgrade">
+                    🪙 100
+                </button>
+
+            </div>
+
+
+            <!-- Coin Bonus -->
+            <div class="shop-item">
+
+                <div>
+                    <h3>💰 Coin Bonus</h3>
+
+                    <p>
+                        Earn more coins from rolls.
+                    </p>
+
+                    <small>
+                        Level:
+                        <span id="coinLevel">
+                            0
+                        </span>
+                    </small>
+                </div>
+
+                <button
+                    class="buy-button"
+                    id="coinUpgrade">
+                    🪙 150
+                </button>
+
+            </div>
+
         </div>
 
     </div>
+
+
+    <!-- ========================= -->
+    <!-- COOKIE MERCHANT -->
+    <!-- ========================= -->
+
+    <div
+        id="merchantPanel"
+        class="panel merchant-panel">
+
+        <button
+            id="closeMerchant"
+            class="close-button">
+            ✕
+        </button>
+
+        <h2>🍊 Cookie Merchant</h2>
+
+        <p class="merchant-description">
+            Sell your cookies for coins!
+        </p>
+
+        <div class="merchant-timer">
+            Prices change in:
+            <strong id="merchantTimer">
+                5:00
+            </strong>
+        </div>
+
+
+        <!-- Normal -->
+        <div class="merchant-item">
+
+            <div>
+                <h3>🍪 Normal Cookie</h3>
+
+                <p>
+                    Price:
+                    <strong>
+                        🪙 <span id="normalPrice">5</span>
+                    </strong>
+                </p>
+
+                <small>
+                    You own:
+                    <span id="normalOwned">0</span>
+                </small>
+            </div>
+
+            <button
+                class="sell-button"
+                id="sellNormal">
+                Sell
+            </button>
+
+        </div>
+
+
+        <!-- Rainbow -->
+        <div class="merchant-item">
+
+            <div>
+                <h3>🌈 Rainbow Cookie</h3>
+
+                <p>
+                    Price:
+                    <strong>
+                        🪙 <span id="rainbowPrice">20</span>
+                    </strong>
+                </p>
+
+                <small>
+                    You own:
+                    <span id="rainbowOwned">0</span>
+                </small>
+            </div>
+
+            <button
+                class="sell-button"
+                id="sellRainbow">
+                Sell
+            </button>
+
+        </div>
+
+
+        <!-- Golden -->
+        <div class="merchant-item">
+
+            <div>
+                <h3>🥇 Golden Cookie</h3>
+
+                <p>
+                    Price:
+                    <strong>
+                        🪙 <span id="goldPrice">60</span>
+                    </strong>
+                </p>
+
+                <small>
+                    You own:
+                    <span id="goldOwned">0</span>
+                </small>
+            </div>
+
+            <button
+                class="sell-button"
+                id="sellGold">
+                Sell
+            </button>
+
+        </div>
+
+    </div>
+
 
     <script src="script.js"></script>
 
