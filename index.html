@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CookieRNG</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Top bar -->
+    <div class="top-bar">
+        <div class="game-title">🍪 CookieRNG</div>
+
+        <div class="coins">
+            🪙 <span id="coinCount">100</span>
+        </div>
+    </div>
+
+    <!-- Main game -->
+    <main>
+
+        <div id="resultText" class="result-text">
+            Roll for a cookie!
+        </div>
+
+        <div id="cookieDisplay" class="cookie-display">
+            🍪
+        </div>
+
+        <button id="rollButton" class="roll-button">
+            ROLL
+        </button>
+
+        <div id="timer" class="timer"></div>
+
+    </main>
+
+    <!-- Bottom buttons -->
+    <div class="bottom-buttons">
+
+        <button id="inventoryButton" class="feature-button inventory-button">
+            🎒
+            <span>Inventory</span>
+        </button>
+
+        <button id="shopButton" class="feature-button shop-button">
+            🛒
+            <span>Shop</span>
+        </button>
+
+    </div>
+
+    <!-- Inventory popup -->
+    <div id="inventoryPanel" class="panel inventory-panel">
+
+        <button id="closeInventory" class="close-button">✕</button>
+
+        <h2>🎒 Inventory</h2>
+
+        <div id="inventoryList"></div>
+
+    </div>
+
+    <!-- Shop -->
+    <div id="shopPanel" class="panel shop-panel">
+
+        <button id="closeShop" class="close-button">✕</button>
+
+        <h2>🛒 Cookie Shop</h2>
+
+        <div class="shop-item">
+            <div>
+                <h3>🍪 Lucky Rolling</h3>
+                <p>Increases your rare cookie chance.</p>
+            </div>
+
+            <button class="buy-button" id="luckUpgrade">
+                🪙 100
+            </button>
+        </div>
+
+        <div class="shop-item">
+            <div>
+                <h3>💰 Coin Bonus</h3>
+                <p>Get more coins from rolling.</p>
+            </div>
+
+            <button class="buy-button" id="coinUpgrade">
+                🪙 150
+            </button>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
